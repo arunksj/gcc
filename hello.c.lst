@@ -1,0 +1,102 @@
+GAS LISTING /tmp/ccFB28rE.s 			page 1
+
+
+   1              		.file	"hello.c"
+   9              	.Ltext0:
+  10              		.cfi_sections	.debug_frame
+  11              		.section	.rodata
+  12              	.LC0:
+  13 0000 48656C6C 		.string	"Hello"
+  13      6F00
+  14              		.text
+  15              	.globl main
+  17              	main:
+  18              	.LFB0:
+  19              		.file 1 "hello.c"
+   1:hello.c       **** #include <stdio.h>
+   2:hello.c       **** 
+   3:hello.c       **** int mySum(int, int);
+   4:hello.c       **** int main() {
+  20              		.loc 1 4 0
+  21              		.cfi_startproc
+  22 0000 55       		pushl	%ebp
+  23              	.LCFI0:
+  24              		.cfi_def_cfa_offset 8
+  25 0001 89E5     		movl	%esp, %ebp
+  26              		.cfi_offset 5, -8
+  27              	.LCFI1:
+  28              		.cfi_def_cfa_register 5
+  29 0003 83E4F0   		andl	$-16, %esp
+  30 0006 83EC20   		subl	$32, %esp
+   5:hello.c       **** 	int i = mySum(1, 2);
+  31              		.loc 1 5 0
+  32 0009 C7442404 		movl	$2, 4(%esp)
+  32      02000000 
+  33 0011 C7042401 		movl	$1, (%esp)
+  33      000000
+  34 0018 E8FCFFFF 		call	mySum
+  34      FF
+  35 001d 8944241C 		movl	%eax, 28(%esp)
+   6:hello.c       **** 	char *myName = (char *)malloc(10 * sizeof(char));
+  36              		.loc 1 6 0
+  37 0021 C704240A 		movl	$10, (%esp)
+  37      000000
+  38 0028 E8FCFFFF 		call	malloc
+  38      FF
+  39 002d 89442418 		movl	%eax, 24(%esp)
+   7:hello.c       **** 	myName = "Hello";
+  40              		.loc 1 7 0
+  41 0031 C7442418 		movl	$.LC0, 24(%esp)
+  41      00000000 
+   8:hello.c       **** 	printf("%s\n", myName);
+  42              		.loc 1 8 0
+  43 0039 8B442418 		movl	24(%esp), %eax
+  44 003d 890424   		movl	%eax, (%esp)
+  45 0040 E8FCFFFF 		call	puts
+  45      FF
+   9:hello.c       **** }
+  46              		.loc 1 9 0
+  47 0045 C9       		leave
+  48 0046 C3       		ret
+GAS LISTING /tmp/ccFB28rE.s 			page 2
+
+
+  49              		.cfi_endproc
+  50              	.LFE0:
+  52              	.globl mySum
+  54              	mySum:
+  55              	.LFB1:
+  10:hello.c       **** 
+  11:hello.c       **** int mySum(int a, int b) {
+  56              		.loc 1 11 0
+  57              		.cfi_startproc
+  58 0047 55       		pushl	%ebp
+  59              	.LCFI2:
+  60              		.cfi_def_cfa_offset 8
+  61 0048 89E5     		movl	%esp, %ebp
+  62              		.cfi_offset 5, -8
+  63              	.LCFI3:
+  64              		.cfi_def_cfa_register 5
+  12:hello.c       **** 	return a + b;
+  65              		.loc 1 12 0
+  66 004a 8B450C   		movl	12(%ebp), %eax
+  67 004d 8B5508   		movl	8(%ebp), %edx
+  68 0050 8D0402   		leal	(%edx,%eax), %eax
+  13:hello.c       **** }
+  69              		.loc 1 13 0
+  70 0053 5D       		popl	%ebp
+  71 0054 C3       		ret
+  72              		.cfi_endproc
+  73              	.LFE1:
+  75              	.Letext0:
+GAS LISTING /tmp/ccFB28rE.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 hello.c
+     /tmp/ccFB28rE.s:17     .text:0000000000000000 main
+     /tmp/ccFB28rE.s:54     .text:0000000000000047 mySum
+
+UNDEFINED SYMBOLS
+malloc
+puts

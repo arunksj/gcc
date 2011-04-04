@@ -1,0 +1,31 @@
+execve("./a.out", ["./a.out"], [/* 43 vars */]) = 0
+brk(0)                                  = 0x8c9d000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb780b000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+open("/etc/ld.so.cache", O_RDONLY)      = 3
+fstat64(3, {st_mode=S_IFREG|0644, st_size=86421, ...}) = 0
+mmap2(NULL, 86421, PROT_READ, MAP_PRIVATE, 3, 0) = 0xb77f5000
+close(3)                                = 0
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+open("/lib/libc.so.6", O_RDONLY)        = 3
+read(3, "\177ELF\1\1\1\0\0\0\0\0\0\0\0\0\3\0\3\0\1\0\0\0@n\1\0004\0\0\0"..., 512) = 512
+fstat64(3, {st_mode=S_IFREG|0755, st_size=1421892, ...}) = 0
+mmap2(NULL, 1431976, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x9aa000
+mprotect(0xb01000, 4096, PROT_NONE)     = 0
+mmap2(0xb02000, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x157) = 0xb02000
+mmap2(0xb05000, 10664, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0xb05000
+close(3)                                = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb77f4000
+set_thread_area({entry_number:-1 -> 6, base_addr:0xb77f46c0, limit:1048575, seg_32bit:1, contents:0, read_exec_only:0, limit_in_pages:1, seg_not_present:0, useable:1}) = 0
+mprotect(0xb02000, 8192, PROT_READ)     = 0
+mprotect(0x8049000, 4096, PROT_READ)    = 0
+mprotect(0x648000, 4096, PROT_READ)     = 0
+munmap(0xb77f5000, 86421)               = 0
+brk(0)                                  = 0x8c9d000
+brk(0x8cbe000)                          = 0x8cbe000
+fstat64(1, {st_mode=S_IFCHR|0600, st_rdev=makedev(136, 2), ...}) = 0
+mmap2(NULL, 4096, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xb780a000
+write(1, "Hello, 3\n", 9Hello, 3
+)               = 9
+exit_group(9)    
