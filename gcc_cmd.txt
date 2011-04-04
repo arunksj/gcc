@@ -1,1 +1,4 @@
 gcc -ggdb
+
+git remote add origin git@github.com:arunksj/gcc.git
+git push -u origin master
